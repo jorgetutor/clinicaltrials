@@ -74,6 +74,21 @@
           "location": "query",
           "type": "string",
           "description": "Search by brief summary."
+        },
+        "official_title": {
+          "location": "query",
+          "type": "string",
+          "description": "Search by official title."
+        },
+        "official_title_fulltext": {
+          "location": "query",
+          "type": "string",
+          "description": "Search by official title."
+        },
+        "eligibility.structured.gender": {
+          "location": "query",
+          "type": "string",
+          "description": "Gender."
         }
       }
     }
