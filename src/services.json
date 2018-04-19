@@ -1,0 +1,89 @@
+{
+  "name": "MedlinePlus Web Service",
+  "apiVersion": "1.0",
+  "description": "Returns MedlinePlus health topic search results in English or Spanish for an input query string.",
+  "baseUri": "https://clinicaltrialsapi.cancer.gov/v1/",
+  "operations": {
+    "ClinicalTrials": {
+      "httpMethod": "GET",
+      "uri": "clinical-trials",
+      "responseModel": "getResponse",
+      "summary": "Search Trials.",
+      "parameters": {
+        "size": {
+          "location": "query",
+          "type": "string",
+          "description": "Limit the amount of results a supplied amount (default is 10, max is 50)."
+        },
+        "from": {
+          "location": "query",
+          "type": "string",
+          "description": "Start the results from a supplied starting point (default is 0)."
+        },
+        "include": {
+          "location": "query",
+          "type": "string",
+          "description": "Include only the supplied filter param fields in all results (useful if you want to minimize the payload returned)."
+        },
+        "exclude": {
+          "location": "query",
+          "type": "string",
+          "description": "Exclude the supplied filter param fields from all results (useful if you want most of the payload returned with the exception of a few fields)."
+        },
+        "_fulltext": {
+          "location": "query",
+          "type": "string",
+          "description": "Filter results by examining a variety of text-based fields (_id, other_ids.value, _diseases.term, brief_title, brief_summary, official_title, detail_description, official_title, _diseases.term_fulltext, detail_description, sites.org_name_fulltext, collaborators.name_fulltext, principal_investigator_fulltext, sites.contact_name_fulltext, sites.org_city_fulltext, sites.org_state_or_province_fulltext, arms.interventions.intervention_name, biomarkers.name, biomarkers.long_name, biomarkers.synonyms)."
+        },
+        "sites.org_name_fulltext": {
+          "location": "query",
+          "type": "string",
+          "description": "Filter results by examining words that make up organization name e.g 'Mayo'.."
+        },
+        "_trialids": {
+          "location": "query",
+          "type": "string",
+          "description": "Filter results by examining trial identifiers (ccr_id, ctep_id, dcp_id, nci_id, nct_id, other_ids.value, protocol_id)."
+        },
+        "nci_id": {
+          "location": "query",
+          "type": "string",
+          "description": "Search by NCI ID."
+        },
+        "nct_id": {
+          "location": "query",
+          "type": "string",
+          "description": "Search by NCT ID."
+        },
+        "brief_title": {
+          "location": "query",
+          "type": "string",
+          "description": "Search by brief title."
+        },
+        "brief_title_fulltext": {
+          "location": "query",
+          "type": "string",
+          "description": "Search by brief title."
+        },
+        "brief_summary": {
+          "location": "query",
+          "type": "string",
+          "description": "Search by brief summary."
+        },
+        "brief_summary_fulltext": {
+          "location": "query",
+          "type": "string",
+          "description": "Search by brief summary."
+        }
+      }
+    }
+  },
+  "models": {
+    "getResponse": {
+      "type": "object",
+      "additionalProperties": {
+        "location": "json"
+      }
+    }
+  }
+}
